@@ -15,3 +15,15 @@
  */
 
 @import "bootstrap/scss/bootstrap";
+
+// max-width
+
+.mw-md {
+  max-width: 576px;
+}
+
+// ***** 以下を追加 *****
+
+.mw-xl {
+  max-width: 1200px;
+}
