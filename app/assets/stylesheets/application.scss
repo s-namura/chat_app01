@@ -43,6 +43,18 @@ footer {
   background-color: white;
 }
 
+// ボタン無効化時のスタイル
+.btn-primary.disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  cursor: auto;
+}
+
+// ユーザーがフォームサイズを自由に変更できる機能を停止させておく
+#message_content {
+  resize: none;
+}
+
 // textarea {
 //   resize: none;
 //   width: 768px;
