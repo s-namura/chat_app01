@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
+
+// max-width
+
+.mw-md {
+  max-width: 576px;
+}
+
+// ***** 以下を追加 *****
+
+.mw-xl {
+  max-width: 1200px;
+}
+
+// メッセージ一覧
+#message-container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1rem 1rem 8rem 1rem;
+}
+
+// メッセージ投稿フォーム
+footer {
+  max-width: 768px;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: white;
+}
+
+// ボタン無効化時のスタイル
+.btn-primary.disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  cursor: auto;
+}
+
+// ユーザーがフォームサイズを自由に変更できる機能を停止させておく
+#message_content {
+  resize: none;
+}
+
+// textarea {
+//   resize: none;
+//   width: 768px;
+//   height: 50px;
+// }
+
+// .form-control {
+//   #message_content {
+//     max-width: 768px;
+//     padding: 1rem;
+//     margin: 0 auto;
+//     background-color: white;
+//   }
+// }
