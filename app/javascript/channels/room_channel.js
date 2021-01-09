@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
     // 最初にページ一番下へ移動させる
     scrollToBottom()
     // ********** 以上を追加 **********
-// ********** 以下を追加 **********
+    // ********** 以下を追加 **********
     const messageButton = document.getElementById('message-button')
 
     // 空欄でなければボタンを有効化，空欄なら無効化する関数
@@ -98,7 +98,7 @@ document.addEventListener('turbolinks:load', () => {
     const changeLineCount = (newLineCount) => {
         // フォームの行数を変更
         messageContent.rows = lineCount = newLineCount
-      // ********** 以下を追加 **********
+        // ********** 以下を追加 **********
         // 新しいフッターの高さを取得し，違いを計算
         newFooterHeight = footer.scrollHeight
         footerHeightDiff = newFooterHeight - footerHeight
@@ -115,5 +115,24 @@ document.addEventListener('turbolinks:load', () => {
     // ********** 以上を追加 **********
       }
     // ********** 以上を追加 **********
+    // ********** 以下を追加 **********
+    let oldestMessageId
+    // メッセージの追加読み込みの可否を決定する変数
+    window.showAdditionally = true
 
+    window.addEventListener('scroll', () => {
+        if (documentElement.scrollTop === 0 && showAdditionally) {
+            showAdditionally = false
+            // 表示済みのメッセージの内，最も古いidを取得
+            oldestMessageId = document.getElementsByClassName('message')[0].id.replace(/[^0-9]/g, '')
+            // Ajax を利用してメッセージの追加読み込みリクエストを送る。最も古いメッセージidも送信しておく。
+            $.ajax({
+                type: 'GET',
+                url: '/show_additionally',
+                cache: false,
+                data: {oldest_message_id: oldestMessageId, remote: true}
+            })
+        }
+    }, {passive: true});
+    // ********** 以上を追加 **********
   })
